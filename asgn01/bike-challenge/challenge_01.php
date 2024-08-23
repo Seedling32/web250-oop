@@ -18,7 +18,10 @@ class Bicycle
     return floatval($this->weight_kg) * 2.2046226218;
   }
 
-  function set_weight_lbs() {}
+  function set_weight_lbs($value)
+  {
+    $this->weight_kg = floatval($value) / 2.2046226218;
+  }
 }
 
 
@@ -36,8 +39,12 @@ $transition->weight_kg = 9;
 
 echo $specialized->name() . "<br>";
 echo $specialized->weight_kg . "<br>";
-echo $specialized->weight_lbs() . "<br>";
+echo $specialized->weight_lbs() . "<br><br>";
 
 echo $transition->name() . "<br>";
 echo $transition->weight_kg . "<br>";
 echo $transition->weight_lbs() . "<br>";
+
+$specialized->set_weight_lbs(24);
+echo $specialized->weight_kg . "<br>";
+echo $specialized->weight_lbs();
