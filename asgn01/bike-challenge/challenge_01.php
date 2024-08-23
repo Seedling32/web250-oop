@@ -14,3 +14,10 @@ class Bicycle
 
   function set_weight_lbs() {}
 }
+
+
+$specialized = new Bicycle;
+$specialized->brand = 'Specialized';
+$specialized->model = 'Stump Jumper';
+$specialized->year = '2022';
+$specialized->weight_kg = 10;
