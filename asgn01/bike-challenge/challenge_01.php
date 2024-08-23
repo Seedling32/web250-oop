@@ -33,3 +33,11 @@ $transition->brand = 'Transition';
 $transition->model = 'Spire';
 $transition->year = '2023';
 $transition->weight_kg = 9;
+
+echo $specialized->name() . "<br>";
+echo $specialized->weight_kg . "<br>";
+echo $specialized->weight_lbs() . "<br>";
+
+echo $transition->name() . "<br>";
+echo $transition->weight_kg . "<br>";
+echo $transition->weight_lbs() . "<br>";
