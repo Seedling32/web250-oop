@@ -26,12 +26,12 @@ class Bird
   function displayDetails()
   {
     echo '<h1>Bird details</h1>';
-    echo 'Name: ' . $this->commonName . '<br>';
-    echo 'Food: ' . $this->food . '<br>';
-    echo 'Nest placement: ' . $this->nestPlacement . '<br>';
-    echo 'Conservation level: ' . $this->conservationLevel . '<br>';
-    echo $this->song();
-    echo $this->canFly();
+    echo '<p>Name: ' . $this->commonName . '</p>';
+    echo '<p>Food: ' . $this->food . '</p>';
+    echo '<p>Nest placement: ' . $this->nestPlacement . '</p>';
+    echo '<p>Conservation level: ' . $this->conservationLevel . '</p>';
+    echo '<p>' . $this->song() . '</p>';
+    echo '<p>' . $this->canFly() . '</p>';
   }
 }
 
