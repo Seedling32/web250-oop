@@ -9,13 +9,13 @@ class Bird
 
   //constructor
 
-  public function __construct($commonName, $food, $nestPlacement, $conservationLevel)
-  {
-    $this->commonName = $commonName;
-    $this->food = $food;
-    $this->nestPlacement = $nestPlacement;
-    $this->conservationLevel = $conservationLevel;
-  }
+  // public function __construct($commonName, $food, $nestPlacement, $conservationLevel)
+  // {
+  //   $this->commonName = $commonName;
+  //   $this->food = $food;
+  //   $this->nestPlacement = $nestPlacement;
+  //   $this->conservationLevel = $conservationLevel;
+  // }
 
   //methods
 
