@@ -30,7 +30,10 @@ class Bird
 
 
 
-  public function canFly() {}
+  public function canFly()
+  {
+    echo "This bird can fly!";
+  }
 }
 
 $bird1 = new Bird('cardinal', 'worms', 'low trees', 'common');
