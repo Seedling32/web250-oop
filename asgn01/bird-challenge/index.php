@@ -11,7 +11,7 @@ class Bird
 
   function song()
   {
-    return 'This birds song goes something like this: ' . $this->song . '<br>';
+    return $this->song;
   }
 
   function canFly()
@@ -23,9 +23,13 @@ class Bird
     }
   }
 
+  static $birdCount = 0;
+
   function displayDetails()
   {
-    echo '<h1>Bird details</h1>';
+    self::$birdCount++;
+
+    echo '<h2>Bird #' . self::$birdCount . '</h2>';
     echo '<table>';
     echo '<tr>';
     echo '<th>Name: </th>';
@@ -82,10 +86,21 @@ echo $bird2->displayDetails();
 
 echo "<style type='text/css'>
       body {
-         margin: 2rem;
+        margin: 2rem;
       }
 
-      h1 {
-         font-size: 50px;
+      h2 {
+        font-size: 36px;
+      }
+
+      table {
+        border: #333 solid 1px;
+        border-collapse: collapse;
+      }
+
+      td,
+      th {
+        border: #333 solid 1px;
+        padding: 5px;
       }
    </style>";
