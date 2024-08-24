@@ -26,7 +26,8 @@ class Bird
   function displayDetails()
   {
     echo '<h1>Bird details</h1>';
-    echo '<p>Name: ' . $this->commonName . '</p>';
+    echo '<ul>';
+    echo '<li>Name: ' . $this->commonName . '</li>';
     echo '<p>Food: ' . $this->food . '</p>';
     echo '<p>Nest placement: ' . $this->nestPlacement . '</p>';
     echo '<p>Conservation level: ' . $this->conservationLevel . '</p>';
@@ -54,3 +55,13 @@ $bird2->song = 'whatwhat!';
 
 
 echo $bird2->displayDetails();
+
+echo "<style type='text/css'>
+      body {
+         margin: 2rem;
+      }
+
+      h1 {
+         font-size: 50px;
+      }
+   </style>";
