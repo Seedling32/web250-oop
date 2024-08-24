@@ -11,28 +11,52 @@ class Bird
 
   function song()
   {
-    echo 'This birds song goes something like this: ' . $this->song . '<br>';
+    return 'This birds song goes something like this: ' . $this->song . '<br>';
   }
 
   function canFly()
   {
     if ($this->fly) {
-      echo 'This bird can fly!';
+      return 'This bird can fly!';
     } else {
-      echo 'This bird cannot fly.';
+      return 'This bird cannot fly.';
     }
   }
 
   function displayDetails()
   {
     echo '<h1>Bird details</h1>';
-    echo '<ul>';
-    echo '<li>Name: ' . $this->commonName . '</li>';
-    echo '<p>Food: ' . $this->food . '</p>';
-    echo '<p>Nest placement: ' . $this->nestPlacement . '</p>';
-    echo '<p>Conservation level: ' . $this->conservationLevel . '</p>';
-    echo '<p>' . $this->song() . '</p>';
-    echo '<p>' . $this->canFly() . '</p>';
+    echo '<table>';
+    echo '<tr>';
+    echo '<th>Name: </th>';
+    echo '<td>' . $this->commonName . '</td>';
+    echo '</tr>';
+
+    echo '<tr>';
+    echo '<th>Food: </th>';
+    echo '<td>' . $this->food . '</td>';
+    echo '</tr>';
+
+    echo '<tr>';
+    echo '<th>Nest placement: </th>';
+    echo '<td>' . $this->nestPlacement . '</td>';
+    echo '</tr>';
+
+    echo '<tr>';
+    echo '<th>Conservation level: </th>';
+    echo '<td>' . $this->conservationLevel . '</td>';
+    echo '</tr>';
+
+    echo '<tr>';
+    echo '<th>Song: </th>';
+    echo '<td>' . $this->song() . '</td>';
+    echo '</tr>';
+
+    echo '<tr>';
+    echo '<th>Can I fly?</th>';
+    echo '<td>' . $this->canFly() . '</td>';
+    echo '</tr>';
+    echo '</table>';
   }
 }
 
