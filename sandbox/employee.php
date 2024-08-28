@@ -8,7 +8,7 @@ class Employee
   public $id;
 
   // Protected property can be accessed within this class and derived classes
-  protected $salary;
+  private $salary;
 
   // Private property can only be accessed within this class
   private $hireDate;
@@ -78,7 +78,7 @@ class Developer extends Employee
 }
 
 // Example usage
-$manager = new Manager();
+$manager = new Manager;
 $manager->name = 'Alice Johnson';
 $manager->id = 'M001';
 $manager->setSalary(80000);
