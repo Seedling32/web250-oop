@@ -21,3 +21,11 @@ class Truck extends Vehicle
     return parent::display() . "This vehicle is a {$this->classification}.";
   }
 }
+
+$frontier = new Truck;
+$frontier->make = 'Nissan';
+$frontier->model = 'Frontier';
+$frontier->year = 2012;
+$frontier->classification = 'Pick-up truck';
+
+echo $frontier->display();
