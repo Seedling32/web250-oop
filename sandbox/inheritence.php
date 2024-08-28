@@ -28,4 +28,10 @@ $frontier->model = 'Frontier';
 $frontier->year = 2012;
 $frontier->classification = 'Pick-up truck';
 
+$colorado = new Truck;
+$colorado->make = 'Chevy';
+$colorado->model = 'Colorado';
+$colorado->year = 2014;
+$colorado->classification = 'Pick-up truck';
+
 echo $frontier->display();
