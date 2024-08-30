@@ -6,39 +6,77 @@ class Vehicle
   public $model;
   public $year;
   public $classification;
+  public $tires = 4;
+  public $wheelDrive = 'rear';
 
-  public function display()
+  public function displayVehicle()
   {
-    return "This vehicle is made by {$this->make} and is the {$this->model} model made in ({$this->year}). It is classified as a {$this->classification}.";
+    echo "<h2>{$this->model}</h2>
+    <h3>Properties:</h3>
+    Make: {$this->make}<br>
+    Model: {$this->model}<br>
+    Year: {$this->year}<br>
+    Classification: {$this->classification}<br>
+    # of Tires: {$this->tires}<br>
+    Wheel Drive: {$this->wheelDrive}<br>
+    ";
   }
 }
 
 class Truck extends Vehicle
 {
   public $bedLength;
+  public $isMover = true;
 
-  public function display()
+  public function displayTruck()
   {
-    return parent::display() . "This vehicle has a {$this->bedLength} foot bed.<br>";
+    parent::displayVehicle();
+    echo "Bed Length: {$this->bedLength}<br>
+    For Moving? ";
+    if ($this->isMover) {
+      echo "Yes";
+    } else {
+      echo "No";
+    }
+    echo "<br>";
   }
 }
 
 class Car extends Vehicle
 {
-  public $wheelDrive;
+  public $isConvertible = false;
 
-  public function display()
+  public function displayCar()
   {
-    return parent::display() . "This vehicle is {$this->wheelDrive} wheel drive.<br>";
+    parent::displayVehicle();
+    echo "Convertible? ";
+    if ($this->isConvertible) {
+      echo "Yes";
+    } else {
+      echo "No";
+    }
+    echo "<br>";
   }
 }
 
-$frontier = new Truck;
-$frontier->classification = 'pick-up truck';
-$frontier->make = 'Nissan';
-$frontier->model = 'Frontier';
-$frontier->year = 2012;
-$frontier->bedLength = 6;
+class SportsCar extends Car
+{
+  public $isRacing = true;
+
+  public function displayCar()
+  {
+    parent::displayCar();
+    echo "For Racing? ";
+    if ($this->isRacing) {
+      echo "Yes";
+    } else {
+      echo "No";
+    }
+    echo "<br>";
+  }
+}
+
+echo "<h1>Assignment 02 Inheritance";
 
 $colorado = new Truck;
 $colorado->classification = 'pick-up truck';
@@ -46,14 +84,28 @@ $colorado->make = 'Chevy';
 $colorado->model = 'Colorado';
 $colorado->year = 2014;
 $colorado->bedLength = 8;
+$colorado->displayTruck();
 
-$supra = new Car;
-$supra->classification = 'sports car';
+$frontier = new Truck;
+$frontier->classification = 'pick-up truck';
+$frontier->make = 'Nissan';
+$frontier->model = 'Frontier';
+$frontier->year = 2012;
+$frontier->bedLength = 6;
+$frontier->displayTruck();
+
+$camry = new Car;
+$camry->make = 'Toyota';
+$camry->model = 'Camry';
+$camry->year = '2020';
+$camry->classification = 'Sedan';
+$camry->wheelDrive = 'front';
+$camry->displayCar();
+
+$supra = new SportsCar;
+$supra->classification = 'coupe';
 $supra->make = 'Toyota';
 $supra->model = 'Supra';
 $supra->year = '1993';
-$supra->wheelDrive = 'rear';
-
-echo $frontier->display();
-echo $colorado->display();
-echo $supra->display();
+$supra->isConvertible = true;
+$supra->displayCar();
