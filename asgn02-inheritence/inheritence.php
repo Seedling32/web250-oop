@@ -5,12 +5,6 @@ class Vehicle
   public $make;
   public $model;
   public $year;
-<<<<<<< HEAD
-  public $classification;
-  public $tires = 4;
-  public $wheelDrive = 'rear';
-
-=======
   private $classification = 'Unclassified';
   protected $tires = 4;
   public $wheelDrive = 'rear';
@@ -20,7 +14,6 @@ class Vehicle
     $this->classification = $value;
   }
 
->>>>>>> dev
   public function displayVehicle()
   {
     echo "<h2>{$this->model}</h2>
@@ -36,10 +29,6 @@ class Vehicle
 
 class Truck extends Vehicle
 {
-<<<<<<< HEAD
-  public $bedLength;
-  public $isMover = true;
-=======
   private $bedLength = 0.0;
   private $isMover = true;
 
@@ -57,26 +46,16 @@ class Truck extends Vehicle
   {
     $this->isMover = $boolean;
   }
->>>>>>> dev
 
   public function displayTruck()
   {
     parent::displayVehicle();
-<<<<<<< HEAD
-    echo "Bed Length: {$this->bedLength}<br>
-    For Moving? ";
-    if ($this->isMover) {
-      echo "Yes";
-    } else {
-      echo "No";
-=======
     echo "Bed Length: " . $this->get_bedLength() . "<br>
     For Moving? ";
     if ($this->isMover) {
       echo "Yes, move away!";
     } else {
       echo "Not for moving.";
->>>>>>> dev
     }
     echo "<br>";
   }
@@ -119,22 +98,6 @@ class SportsCar extends Car
 echo "<h1>Assignment 02 Inheritance";
 
 $colorado = new Truck;
-<<<<<<< HEAD
-$colorado->classification = 'pick-up truck';
-$colorado->make = 'Chevy';
-$colorado->model = 'Colorado';
-$colorado->year = 2014;
-$colorado->bedLength = 8;
-$colorado->displayTruck();
-
-$frontier = new Truck;
-$frontier->classification = 'pick-up truck';
-$frontier->make = 'Nissan';
-$frontier->model = 'Frontier';
-$frontier->year = 2012;
-$frontier->bedLength = 6;
-$frontier->displayTruck();
-=======
 $colorado->set_classification('pick-up truck');
 $colorado->make = 'Chevy';
 $colorado->model = 'Colorado';
@@ -148,33 +111,20 @@ $frontier->make = 'Nissan';
 $frontier->model = 'Frontier';
 $frontier->year = 2012;
 $frontier->set_bedLength(6);
->>>>>>> dev
 
 $camry = new Car;
 $camry->make = 'Toyota';
 $camry->model = 'Camry';
 $camry->year = '2020';
-<<<<<<< HEAD
-$camry->classification = 'Sedan';
-$camry->wheelDrive = 'front';
-$camry->displayCar();
-
-$supra = new SportsCar;
-$supra->classification = 'coupe';
-=======
 $camry->set_classification('Sedan');
 $camry->wheelDrive = 'front';
 
 $supra = new SportsCar;
 $supra->set_classification('coupe');
->>>>>>> dev
 $supra->make = 'Toyota';
 $supra->model = 'Supra';
 $supra->year = '1993';
 $supra->isConvertible = true;
-<<<<<<< HEAD
-$supra->displayCar();
-=======
 
 $colorado->displayTruck();
 echo "<hr>";
@@ -184,4 +134,3 @@ $camry->displayCar();
 echo "<hr>";
 $supra->displayCar();
 echo "<hr>";
->>>>>>> dev
