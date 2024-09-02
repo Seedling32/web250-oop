@@ -22,12 +22,12 @@ class Bicycle
 
   public function get_weight_kgs()
   {
-    return $this->weight_kg . " kg";
+    return floatval($this->weight_kg) . " kg";
   }
 
-  public function weight_lbs()
+  public function get_weight_lbs()
   {
-    return floatval($this->weight_kg) * 2.2046226218;
+    return floatval($this->weight_kg) * 2.2046226218 . " lbs";
   }
 
   public function set_weight_lbs($value)
@@ -68,9 +68,9 @@ echo $trek->name() . "<br />";
 echo $cd->name() . "<br />";
 
 echo $trek->get_weight_kgs() . "<br />";
-echo $trek->weight_lbs() . "<br />";
+echo $trek->get_weight_lbs() . "<br />";
 // notice that one is property, one is a method
 
 $trek->set_weight_lbs(2);
 echo $trek->get_weight_kgs() . "<br />";
-echo $trek->weight_lbs() . "<br />";
+echo $trek->get_weight_lbs() . "<br />";
