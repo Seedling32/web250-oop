@@ -104,7 +104,6 @@ $colorado->model = 'Colorado';
 $colorado->year = 2014;
 $colorado->set_bedLength(8);
 $colorado->set_isMover(false);
-$colorado->displayTruck();
 
 $frontier = new Truck;
 $frontier->set_classification('pick-up truck');
@@ -112,7 +111,6 @@ $frontier->make = 'Nissan';
 $frontier->model = 'Frontier';
 $frontier->year = 2012;
 $frontier->set_bedLength(6);
-$frontier->displayTruck();
 
 $camry = new Car;
 $camry->make = 'Toyota';
@@ -120,7 +118,6 @@ $camry->model = 'Camry';
 $camry->year = '2020';
 $camry->set_classification('Sedan');
 $camry->wheelDrive = 'front';
-$camry->displayCar();
 
 $supra = new SportsCar;
 $supra->set_classification('coupe');
@@ -128,4 +125,12 @@ $supra->make = 'Toyota';
 $supra->model = 'Supra';
 $supra->year = '1993';
 $supra->isConvertible = true;
+
+$colorado->displayTruck();
+echo "<hr>";
+$frontier->displayTruck();
+echo "<hr>";
+$camry->displayCar();
+echo "<hr>";
 $supra->displayCar();
+echo "<hr>";
