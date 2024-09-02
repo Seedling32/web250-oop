@@ -5,9 +5,14 @@ class Vehicle
   public $make;
   public $model;
   public $year;
-  public $classification;
+  private $classification = 'Unclassified';
   public $tires = 4;
   public $wheelDrive = 'rear';
+
+  public function set_classification($value)
+  {
+    $this->classification = $value;
+  }
 
   public function displayVehicle()
   {
@@ -78,7 +83,7 @@ class SportsCar extends Car
 echo "<h1>Assignment 02 Inheritance";
 
 $colorado = new Truck;
-$colorado->classification = 'pick-up truck';
+$colorado->set_classification('pick-up truck');
 $colorado->make = 'Chevy';
 $colorado->model = 'Colorado';
 $colorado->year = 2014;
@@ -86,7 +91,7 @@ $colorado->bedLength = 8;
 $colorado->displayTruck();
 
 $frontier = new Truck;
-$frontier->classification = 'pick-up truck';
+$frontier->set_classification('pick-up truck');
 $frontier->make = 'Nissan';
 $frontier->model = 'Frontier';
 $frontier->year = 2012;
@@ -97,12 +102,12 @@ $camry = new Car;
 $camry->make = 'Toyota';
 $camry->model = 'Camry';
 $camry->year = '2020';
-$camry->classification = 'Sedan';
+$camry->set_classification('Sedan');
 $camry->wheelDrive = 'front';
 $camry->displayCar();
 
 $supra = new SportsCar;
-$supra->classification = 'coupe';
+$supra->set_classification('coupe');
 $supra->make = 'Toyota';
 $supra->model = 'Supra';
 $supra->year = '1993';
