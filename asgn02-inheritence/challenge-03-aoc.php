@@ -30,7 +30,7 @@ class Bicycle
     if ($this->wheels == 1) {
       echo "It has one wheel.";
     } else if ($this->wheels == 2) {
-      echo "It has 2 wheels.";
+      echo "It has two wheels.";
     } else {
       echo "It has {$this->wheels} wheels.";
     }
