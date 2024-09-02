@@ -24,6 +24,17 @@ class Bicycle
   {
     $this->weight_kg = floatval($value) / 2.2046226218;
   }
+
+  public function wheel_details()
+  {
+    if ($this->wheels == 1) {
+      echo "It has one wheel.";
+    } else if ($this->wheels == 2) {
+      echo "It has 2 wheels.";
+    } else {
+      echo "It has {$this->wheels} wheels.";
+    }
+  }
 }
 
 class Unicycle extends Bicycle
