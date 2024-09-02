@@ -15,6 +15,11 @@ class Bicycle
     return $this->brand . " " . $this->model . " (" . $this->year . ")";
   }
 
+  public function set_weight_kgs($value)
+  {
+    $this->weight_kg = floatval($value);
+  }
+
   public function weight_lbs()
   {
     return floatval($this->weight_kg) * 2.2046226218;
@@ -46,13 +51,13 @@ $trek = new Bicycle;
 $trek->brand = 'Trek';
 $trek->model = 'Emonda';
 $trek->year = '2017';
-$trek->weight_kg = 1.0;
+$trek->set_weight_kgs(1);
 
 $cd = new Bicycle;
 $cd->brand = 'Cannondale';
 $cd->model = 'Synapse';
 $cd->year = '2016';
-$cd->weight_kg = 8.0;
+$cd->set_weight_kgs(8);
 
 echo $trek->name() . "<br />";
 echo $cd->name() . "<br />";
