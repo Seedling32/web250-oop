@@ -18,8 +18,7 @@ class Vehicle
     Year: {$this->year}<br>
     Classification: {$this->classification}<br>
     # of Tires: {$this->tires}<br>
-    Wheel Drive: {$this->wheelDrive}<br>
-    ";
+    Wheel Drive: {$this->wheelDrive}<br>";
   }
 }
 
