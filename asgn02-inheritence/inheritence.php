@@ -6,7 +6,7 @@ class Vehicle
   public $model;
   public $year;
   private $classification = 'Unclassified';
-  public $tires = 4;
+  protected $tires = 4;
   public $wheelDrive = 'rear';
 
   public function set_classification($value)
@@ -29,18 +29,33 @@ class Vehicle
 
 class Truck extends Vehicle
 {
-  public $bedLength;
-  public $isMover = true;
+  private $bedLength = 0.0;
+  private $isMover = true;
+
+  public function set_bedLength($value)
+  {
+    $this->bedLength = floatval($value);
+  }
+
+  public function get_bedLength()
+  {
+    return $this->bedLength . " ft";
+  }
+
+  public function set_isMover($boolean)
+  {
+    $this->isMover = $boolean;
+  }
 
   public function displayTruck()
   {
     parent::displayVehicle();
-    echo "Bed Length: {$this->bedLength}<br>
+    echo "Bed Length: " . $this->get_bedLength() . "<br>
     For Moving? ";
     if ($this->isMover) {
-      echo "Yes";
+      echo "Yes, move away!";
     } else {
-      echo "No";
+      echo "Not for moving.";
     }
     echo "<br>";
   }
@@ -87,7 +102,8 @@ $colorado->set_classification('pick-up truck');
 $colorado->make = 'Chevy';
 $colorado->model = 'Colorado';
 $colorado->year = 2014;
-$colorado->bedLength = 8;
+$colorado->set_bedLength(8);
+$colorado->set_isMover(false);
 $colorado->displayTruck();
 
 $frontier = new Truck;
@@ -95,7 +111,7 @@ $frontier->set_classification('pick-up truck');
 $frontier->make = 'Nissan';
 $frontier->model = 'Frontier';
 $frontier->year = 2012;
-$frontier->bedLength = 6;
+$frontier->set_bedLength(6);
 $frontier->displayTruck();
 
 $camry = new Car;
