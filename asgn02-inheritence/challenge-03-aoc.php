@@ -65,12 +65,12 @@ $cd->year = '2016';
 $cd->set_weight_kgs(8);
 
 echo $trek->name() . "<br />";
-echo $cd->name() . "<br />";
-
 echo $trek->get_weight_kgs() . "<br />";
 echo $trek->get_weight_lbs() . "<br />";
-// notice that one is property, one is a method
 
+echo "<hr>";
+
+echo $cd->name() . "<br />";
 $trek->set_weight_lbs(2);
 echo $trek->get_weight_kgs() . "<br />";
 echo $trek->get_weight_lbs() . "<br />";
