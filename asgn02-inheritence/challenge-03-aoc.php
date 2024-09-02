@@ -22,7 +22,7 @@ class Bicycle
 
   public function get_weight_kgs()
   {
-    return $this->weight_kg;
+    return $this->weight_kg . " kg";
   }
 
   public function weight_lbs()
