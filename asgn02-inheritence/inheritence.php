@@ -1,5 +1,7 @@
 <?php
 
+//asgn 02: David Graham
+
 class Vehicle
 {
   public $make;
