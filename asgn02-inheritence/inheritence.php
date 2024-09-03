@@ -63,7 +63,12 @@ class Truck extends Vehicle
 
 class Car extends Vehicle
 {
-  public $isConvertible = false;
+  protected $isConvertible = false;
+
+  public function set_convertible($boolean)
+  {
+    $this->isConvertible = $boolean;
+  }
 
   public function displayCar()
   {
@@ -124,7 +129,7 @@ $supra->set_classification('coupe');
 $supra->make = 'Toyota';
 $supra->model = 'Supra';
 $supra->year = '1993';
-$supra->isConvertible = true;
+$supra->set_convertible(true);
 
 $colorado->displayTruck();
 echo "<hr>";
