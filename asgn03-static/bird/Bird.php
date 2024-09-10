@@ -14,12 +14,8 @@ class Bird
 
   public function canFly()
   {
-    if ($this->flying == "yes") {
-      $flying_string = "can fly";
-    } else {
-      $flying_string = "is stuck on the ground";
-    }
-    return  $flying_string;
+    $flyingString = $this->flying == "yes" ? "can fly" : "is stuck on the ground";
+    return  $flyingString;
   }
 
   public static function create()
