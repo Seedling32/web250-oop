@@ -24,6 +24,21 @@
   echo "<p>The " . $fly_catcher->name . " " . $fly_catcher->canFly() . ".</p>";
   echo "<p>The " . $kiwi->name . " " . $kiwi->canFly() . ".</p>";
 
+  echo '<hr>';
+
+  echo 'Bird: ' . Bird::$instanceCount . '<br>';
+  echo 'Fly Catcher: ' . YellowBelliedFlyCatcher::$instanceCount . '<br>';
+  echo 'Kiwi: ' . Kiwi::$instanceCount . '<br>';
+
+  echo '<hr>';
+
+  $newKiwi = Kiwi::create();
+  $newFlyCatcher = YellowBelliedFlyCatcher::create();
+
+  echo 'Bird: ' . Bird::$instanceCount . '<br>';
+  echo 'Fly Catcher: ' . YellowBelliedFlyCatcher::$instanceCount . '<br>';
+  echo 'Kiwi: ' . Kiwi::$instanceCount . '<br>';
+
   ?>
 </body>
 
