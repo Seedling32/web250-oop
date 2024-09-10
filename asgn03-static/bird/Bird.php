@@ -32,6 +32,7 @@ class YellowBelliedFlyCatcher extends Bird
   public $name = "yellow-bellied flycatcher";
   public $diet = "mostly insects.";
   public $song = "flat chilk";
+  public static $eggNum = "3-4, sometimes 5.";
 }
 
 class Kiwi extends Bird
