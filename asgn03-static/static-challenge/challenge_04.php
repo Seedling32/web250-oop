@@ -10,7 +10,7 @@ class Bicycle
   public $category;
   public $description = 'Used bicycle';
   private $weight_kg = 0.0;
-  protected $wheels = 2;
+  protected static $wheels = 2;
 
   public const CATEGORIES = ['Road', 'Mountain', 'Hybrid', 'Cruiser', 'City', 'BMX'];
 
@@ -47,21 +47,16 @@ class Bicycle
     $this->weight_kg = floatval($value) / 2.2046226218;
   }
 
-  public function wheel_details()
+  public static function wheel_details()
   {
-    if ($this->wheels == 1) {
-      echo "It has one wheel.";
-    } else if ($this->wheels == 2) {
-      echo "It has two wheels.";
-    } else {
-      echo "It has {$this->wheels} wheels.";
-    }
+    $wheel_string = static::$wheels == 1 ? "1 wheel" : static::$wheels . "wheels";
+    return "It has " . $wheel_string . ".";
   }
 }
 
 class Unicycle extends Bicycle
 {
-  protected $wheels = 1;
+  protected static $wheels = 1;
 }
 
 $cannondale = new Bicycle;
@@ -86,3 +81,6 @@ $cannondale->category = Bicycle::CATEGORIES[1];
 echo 'Category: ' . $cannondale->category . '<br>';
 
 echo '<hr>';
+
+echo 'Bicycle: ' . Bicycle::wheel_details() . '<br>';
+echo 'Unicycle: ' . Unicycle::wheel_details() . '<br>';
