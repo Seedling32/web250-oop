@@ -2,13 +2,25 @@
 
 class Bicycle
 {
+  public static $instance_count = 0;
 
   public $brand;
   public $model;
   public $year;
+  public $category;
   public $description = 'Used bicycle';
   private $weight_kg = 0.0;
   protected $wheels = 2;
+
+  public const CATEGORIES = ['Road', 'Mountain', 'Hybrid', 'Cruiser', 'City', 'BMX'];
+
+  public static function create()
+  {
+    $class_name = get_called_class();
+    $obj = new $class_name;
+    self::$instance_count++;
+    return $obj;
+  }
 
   public function name()
   {
