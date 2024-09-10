@@ -20,6 +20,14 @@ class Bird
     }
     return  $flying_string;
   }
+
+  public static function create()
+  {
+    $className = get_called_class();
+    $object = new $className;
+    self::$instanceCount++;
+    return $object;
+  }
 }
 
 class YellowBelliedFlyCatcher extends Bird
