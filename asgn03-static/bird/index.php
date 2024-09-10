@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>asgn02 Inheritance</title>
+  <title>asgn 02 Inheritance</title>
 </head>
 
 <body>
