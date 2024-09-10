@@ -64,25 +64,25 @@ class Unicycle extends Bicycle
   protected $wheels = 1;
 }
 
-$trek = new Bicycle;
-$trek->brand = 'Trek';
-$trek->model = 'Emonda';
-$trek->year = '2017';
-$trek->set_weight_kgs(1);
+$cannondale = new Bicycle;
+$cannondale->brand = 'Cannondale';
+$cannondale->model = 'Synapse';
+$cannondale->year = '2016';
+$cannondale->set_weight_kgs(8);
 
-$cd = new Bicycle;
-$cd->brand = 'Cannondale';
-$cd->model = 'Synapse';
-$cd->year = '2016';
-$cd->set_weight_kgs(8);
+echo 'Bicycle count: ' . Bicycle::$instance_count . '<br>';
+echo 'Unicycle count: ' . Unicycle::$instance_count . '<br>';
 
-echo $trek->name() . "<br />";
-echo $trek->get_weight_kgs() . "<br />";
-echo $trek->get_weight_lbs() . "<br />";
+$trek = Bicycle::create();
+$unicycle = Unicycle::create();
 
-echo "<hr>";
+echo 'Bicycle count: ' . Bicycle::$instance_count . '<br>';
+echo 'Unicycle count: ' . Unicycle::$instance_count . '<br>';
 
-echo $cd->name() . "<br />";
-$trek->set_weight_lbs(2);
-echo $trek->get_weight_kgs() . "<br />";
-echo $trek->get_weight_lbs() . "<br />";
+echo '<hr>';
+
+echo 'Categories: ' . implode(', ', Bicycle::CATEGORIES) . '<br>';
+$cannondale->category = Bicycle::CATEGORIES[1];
+echo 'Category: ' . $cannondale->category . '<br>';
+
+echo '<hr>';
