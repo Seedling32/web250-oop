@@ -3,6 +3,7 @@
 class Bird
 {
   public static $instanceCount = 0;
+  public static $eggNum = 0;
 
   public $habitat;
   public $food;
@@ -11,7 +12,7 @@ class Bird
   public $song = "chirp";
   public $flying = "yes";
 
-  function can_fly()
+  public function canFly()
   {
     if ($this->flying == "yes") {
       $flying_string = "can fly";
