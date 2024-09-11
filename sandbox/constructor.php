@@ -27,10 +27,10 @@ class Loveseat extends Sofa
   }
 }
 
-$sofa = new Sofa;
-$sofa2 = new Sofa;
-$couch = new Couch;
-$loveSeat = new Loveseat;
+$sofa = new Sofa();
+$sofa2 = new Sofa();
+$couch = new Couch();
+$loveSeat = new Loveseat();
 
 
 echo 'instance count total: ' . Sofa::$instanceCount . '<br>';
