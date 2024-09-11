@@ -3,9 +3,9 @@
 class Sofa
 {
   public static $instanceCount = 0;
-  public function __construct()
+  function keepTrack()
   {
-    self::$instanceCount++;
+    static::$instanceCount++;
   }
 }
 
@@ -30,6 +30,7 @@ class Loveseat extends Sofa
 $sofa = new Sofa();
 $sofa2 = new Sofa();
 $couch = new Couch();
+$couch->keepTrack();
 $loveSeat = new Loveseat();
 
 
