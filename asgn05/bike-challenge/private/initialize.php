@@ -26,6 +26,10 @@ require_once('functions.php');
 
 // Load class definitions manually
 
+foreach (glob('classes/*.class.php') as $file) {
+  require_once($file);
+}
+
 // Autoload class definitions
 
 function my_autoload($class)
