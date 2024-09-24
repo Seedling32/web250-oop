@@ -26,6 +26,13 @@
         <th>Price</th>
       </tr>
 
+      <?php
+      $parser = new ParseCSV(PRIVATE_PATH . '/used_bicycles.csv');
+      $bike_array = $parser->parse();
+
+      print_r($bike_array);
+      ?>
+
       <tr>
         <td><?php echo h($bike->brand); ?></td>
         <td><?php echo h($bike->model); ?></td>
