@@ -54,6 +54,11 @@ class ParseCSV
     return $this->data;
   }
 
+  public function last_results()
+  {
+    return $this->data;
+  }
+
   public function row_count()
   {
     return $this->row_count;
