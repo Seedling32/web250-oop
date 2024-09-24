@@ -40,13 +40,13 @@ Make all of the properties public.
 
   public function __construct($args = [])
   {
-    $this->common_name = $args['name'] ?? '';
+    $this->common_name = $args['common_name'] ?? '';
     $this->habitat = $args['habitat'] ?? '';
     $this->food = $args['food'] ?? '';
-    $this->nest_placement = $args['nest placement'] ?? '';
+    $this->nest_placement = $args['nest_placement'] ?? '';
     $this->behavior = $args['behavior'] ?? '';
-    $this->conservation_id = $args['conservation id'] ?? 1;
-    $this->backyard_tips = $args['backyard tips'] ?? '';
+    $this->conservation_id = $args['conservation_id'] ?? 1;
+    $this->backyard_tips = $args['backyard_tips'] ?? '';
   }
 
 
