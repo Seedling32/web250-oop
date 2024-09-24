@@ -49,8 +49,6 @@ Make all of the properties public.
     $this->backyard_tips = $args['backyard_tips'] ?? '';
   }
 
-
-
   /*
   Create a public method called conservation(). This method should mimic the public function condition() from the bicycle.class.php file
 */
