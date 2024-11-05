@@ -31,7 +31,9 @@ Use a table border of 1 to make the display easier to read. -->
 
 
   foreach ($bird_array as $args) {
-    $bird = new Bird($args); ?>
+    $bird = new Bird($args);
+
+  ?>
 
     <!-- Create a table row that lists out all of the bird
     properties. -->
@@ -48,5 +50,16 @@ Use a table border of 1 to make the display easier to read. -->
   <?php } ?>
 
 </table>
+
+<?php
+
+$sql = "SELECT * FROM birds";
+$result = $database->query($sql);
+$row = $result->fetch_assoc();
+$result->free();
+
+echo "Common Name: " . $row['common_name'];
+
+?>
 
 <?php include(SHARED_PATH . '/public_footer.php'); ?>
