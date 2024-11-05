@@ -17,6 +17,7 @@ Use a table border of 1 to make the display easier to read. -->
     <th>Food</th>
     <th>Conservation level</th>
     <th>Backyard tips</th>
+    <th>&nbsp;</th>
   </tr>
 
   <?php
@@ -33,6 +34,7 @@ Use a table border of 1 to make the display easier to read. -->
       <td><?php echo h($bird->food); ?></td>
       <td><?php echo h($bird->conservation_id); ?></td>
       <td><?php echo h($bird->backyard_tips); ?></td>
+      <td><a href="detail.php?common_name=<?php echo $bird->common_name; ?>">View</a></td>
     </tr>
   <?php } ?>
 
