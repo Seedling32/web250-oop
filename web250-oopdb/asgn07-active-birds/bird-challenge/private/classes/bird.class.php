@@ -58,10 +58,6 @@ class Bird
 
   // End active record code 
 
-  /*
-Use the wnc-birds.csv file to create the properties
-Make all of the properties public.
-*/
   public $common_name;
   public $habitat;
   public $food;
