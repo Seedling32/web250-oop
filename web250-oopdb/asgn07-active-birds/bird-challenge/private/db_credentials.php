@@ -6,6 +6,6 @@
 // 3. Unique credentials if working with multiple developers
 
 define("DB_SERVER", "localhost");
-define("DB_USER", "webuser");
+define("DB_USER", "birduser");
 define("DB_PASS", "secretepassword");
-define("DB_NAME", "birds");
+define("DB_NAME", "bird");
