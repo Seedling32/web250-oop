@@ -33,6 +33,18 @@ class Bird
     return self::find_by_sql($sql);
   }
 
+  static public function find_by_name($common_name)
+  {
+    $sql = "SELECT * FROM birds";
+    $sql .= "WHERE common_name='" . self::$database->escape_string($common_name) . "'";
+    $obj_array = self::find_by_sql($sql);
+    if (!empty($obj_array)) {
+      return array_shift($obj_array);
+    } else {
+      return false;
+    }
+  }
+
   static protected function instantiate($record)
   {
     $object = new self;
