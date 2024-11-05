@@ -49,8 +49,7 @@ Use a table border of 1 to make the display easier to read. -->
 
 <?php
 
-$sql = "SELECT * FROM birds";
-$result = Bird::$database->query($sql);
+$result = Bird::find_all();
 $row = $result->fetch_assoc();
 $result->free();
 

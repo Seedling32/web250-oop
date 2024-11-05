@@ -3,7 +3,31 @@
 class Bird
 {
 
-  static public $database;
+  // Active record code
+
+  static protected $database;
+
+  static public function set_database($database)
+  {
+    self::$database = $database;
+  }
+
+  static public function find_by_sql($sql)
+  {
+    $result = self::$database->query($sql);
+    if (!$result) {
+      exit("Database query failed.");
+    }
+    return $result;
+  }
+
+  static public function find_all()
+  {
+    $sql = "SELECT * FROM birds";
+    return self::find_by_sql($sql);
+  }
+
+  // End active record code 
 
   /*
 Use the wnc-birds.csv file to create the properties
@@ -39,11 +63,6 @@ Make all of the properties public.
    - Use the Null coalescing operator
    - Create a default value of 1 for conservation_id
  */
-
-  static public function set_database($database)
-  {
-    self::$database = $database;
-  }
 
   public function __construct($args = [])
   {
