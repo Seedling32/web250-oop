@@ -15,8 +15,6 @@ Use a table border of 1 to make the display easier to read. -->
     <th>Common name</th>
     <th>Habitat</th>
     <th>Food</th>
-    <th>Nest placement</th>
-    <th>Behavior</th>
     <th>Conservation level</th>
     <th>Backyard tips</th>
   </tr>
@@ -42,8 +40,6 @@ Use a table border of 1 to make the display easier to read. -->
       <td><?php echo h($bird->common_name); ?></td>
       <td><?php echo h($bird->habitat); ?></td>
       <td><?php echo h($bird->food); ?></td>
-      <td><?php echo h($bird->nest_placement); ?></td>
-      <td><?php echo h($bird->behavior); ?></td>
       <td><?php echo h($bird->conservation_id); ?></td>
       <td><?php echo h($bird->backyard_tips); ?></td>
     </tr>
@@ -54,7 +50,7 @@ Use a table border of 1 to make the display easier to read. -->
 <?php
 
 $sql = "SELECT * FROM birds";
-$result = $database->query($sql);
+$result = Bird::$database->query($sql);
 $row = $result->fetch_assoc();
 $result->free();
 

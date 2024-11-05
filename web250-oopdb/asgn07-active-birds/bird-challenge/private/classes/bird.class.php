@@ -3,6 +3,8 @@
 class Bird
 {
 
+  static public $database;
+
   /*
 Use the wnc-birds.csv file to create the properties
 Make all of the properties public.
@@ -37,6 +39,11 @@ Make all of the properties public.
    - Use the Null coalescing operator
    - Create a default value of 1 for conservation_id
  */
+
+  static public function set_database($database)
+  {
+    self::$database = $database;
+  }
 
   public function __construct($args = [])
   {
