@@ -20,17 +20,8 @@ Use a table border of 1 to make the display easier to read. -->
   </tr>
 
   <?php
-
-  $parser = new ParseCSV(PRIVATE_PATH . '/wnc-birds.csv');
-  $bird_array = $parser->parse();
-
-  // Create a foreach array using $bird_array as $args
-  // Create a new instance of $bird
-
-
-  foreach ($bird_array as $args) {
-    $bird = new Bird($args);
-
+  $birds = Bird::find_all();
+  foreach ($birds as $bird) {
   ?>
 
     <!-- Create a table row that lists out all of the bird
@@ -46,15 +37,5 @@ Use a table border of 1 to make the display easier to read. -->
   <?php } ?>
 
 </table>
-
-<?php
-
-$result = Bird::find_all();
-$row = $result->fetch_assoc();
-$result->free();
-
-echo "Common Name: " . $row['common_name'];
-
-?>
 
 <?php include(SHARED_PATH . '/public_footer.php'); ?>
