@@ -1,6 +1,13 @@
 <?php
 require_once('../private/initialize.php');
-$page_title = "REPLACE THIS";
+
+$common_name = $_GET['common_name'] ?? false;
+if (!$common_name) {
+  redirect_to('birds.php');
+}
+
+$bird = Bird::find_by_name($common_name);
+$page_title = $bird->name();
 include(SHARED_PATH . '/public_header.php');
 ?>
 
@@ -22,7 +29,7 @@ include(SHARED_PATH . '/public_header.php');
       </dl>
       <dl>
         <dt>Conservation ID</dt>
-        <dd><?php echo h($bird->conversation_id); ?></dd>
+        <dd><?php echo h($bird->conservation_id); ?></dd>
       </dl>
       <dl>
         <dt>Backyard Tips</dt>

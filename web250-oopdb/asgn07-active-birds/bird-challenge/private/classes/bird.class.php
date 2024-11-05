@@ -35,8 +35,8 @@ class Bird
 
   static public function find_by_name($common_name)
   {
-    $sql = "SELECT * FROM birds";
-    $sql .= "WHERE common_name='" . self::$database->escape_string($common_name) . "'";
+    $sql = "SELECT * FROM birds ";
+    $sql .= "WHERE common_name = '" . self::$database->escape_string($common_name) . "'";
     $obj_array = self::find_by_sql($sql);
     if (!empty($obj_array)) {
       return array_shift($obj_array);
@@ -92,6 +92,11 @@ Make all of the properties public.
    - Use the Null coalescing operator
    - Create a default value of 1 for conservation_id
  */
+
+  public function name()
+  {
+    return "{$this->common_name}";
+  }
 
   public function __construct($args = [])
   {
