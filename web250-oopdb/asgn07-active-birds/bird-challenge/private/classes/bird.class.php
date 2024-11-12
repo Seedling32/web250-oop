@@ -126,14 +126,14 @@ class Bird
   4 = Extinct
   */
 
-  protected const CONSERVATION_OPTIONS = [
+  public const CONSERVATION_OPTIONS = [
     1 => 'Low concern',
     2 => 'Moderate concern',
     3 => 'Extreme concern',
     4 => 'Extinct'
   ];
 
-  protected const FOOD_OPTIONS = [
+  public const FOOD_OPTIONS = [
     1 => 'Insects',
     2 => 'Nectar',
     3 => 'Omnivore',

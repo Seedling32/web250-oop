@@ -14,7 +14,7 @@ $birds = Bird::find_all();
     <h1>Birds</h1>
 
     <div class="actions">
-      <a class="action" href="<?php echo url_for('/active-record/new.php'); ?>">Add Bicycle</a>
+      <a class="action" href="<?php echo url_for('/active-record/new.php'); ?>">Add Bird</a>
     </div>
 
     <table class="list">

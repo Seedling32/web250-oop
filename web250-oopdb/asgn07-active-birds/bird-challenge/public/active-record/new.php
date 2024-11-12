@@ -7,52 +7,47 @@ if (is_post_request()) {
   // Create record using post parameters
   $args = [];
   $args['common_name'] = $_POST['common_name'] ?? NULL;
-  $args['model'] = $_POST['model'] ?? NULL;
-  $args['year'] = $_POST['year'] ?? NULL;
-  $args['category'] = $_POST['category'] ?? NULL;
-  $args['color'] = $_POST['color'] ?? NULL;
-  $args['gender'] = $_POST['gender'] ?? NULL;
-  $args['price'] = $_POST['price'] ?? NULL;
-  $args['weight_kg'] = $_POST['weight_kg'] ?? NULL;
-  $args['condition_id'] = $_POST['condition_id'] ?? NULL;
-  $args['description'] = $_POST['description'] ?? NULL;
+  $args['habitat'] = $_POST['habitat'] ?? NULL;
+  $args['food'] = $_POST['food'] ?? NULL;
+  $args['conservation_id'] = $_POST['conservation_id'] ?? NULL;
+  $args['backyard_tips'] = $_POST['backyard_tips'] ?? NULL;
 
-  $bicycle = new Bicycle($args);
-  $result = $bicycle->create();
+  $bird = new Bird($args);
+  $result = $bird->create();
 
   if ($result === true) {
-    $new_id = $bicycle->id;
-    $_SESSION['message'] = 'The bicycle was created successfully.';
-    redirect_to(url_for('/staff/bicycles/show.php?id=' . $new_id));
+    $new_id = $bird->id;
+    $_SESSION['message'] = 'The bird was created successfully.';
+    redirect_to(url_for('/active-record/show.php?id=' . $new_id));
   } else {
     // show errors
   }
 } else {
   // display the form
-  $bicycle = new Bicycle;
+  $bird = new Bird;
 }
 
 ?>
 
-<?php $page_title = 'Create Bicycle'; ?>
-<?php include(SHARED_PATH . '/staff_header.php'); ?>
+<?php $page_title = 'Create Bird'; ?>
+<?php include(SHARED_PATH . '/private_header.php'); ?>
 
 <div id="content">
 
-  <a class="back-link" href="<?php echo url_for('/staff/bicycles/index.php'); ?>">&laquo; Back to List</a>
+  <a class="back-link" href="<?php echo url_for('/active-record/index.php'); ?>">&laquo; Back to List</a>
 
   <div class="bicycle new">
-    <h1>Create Bicycle</h1>
+    <h1>Create Bird</h1>
 
     <?php // echo display_errors($errors); 
     ?>
 
-    <form action="<?php echo url_for('/staff/bicycles/new.php'); ?>" method="post">
+    <form action="<?php echo url_for('/active-record/new.php'); ?>" method="post">
 
       <?php include('form_fields.php'); ?>
 
       <div id="operations">
-        <input type="submit" value="Create Bicycle" />
+        <input type="submit" value="Create Bird">
       </div>
     </form>
 
@@ -60,4 +55,4 @@ if (is_post_request()) {
 
 </div>
 
-<?php include(SHARED_PATH . '/staff_footer.php'); ?>
+<?php include(SHARED_PATH . '/private_footer.php'); ?>

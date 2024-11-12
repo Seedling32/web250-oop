@@ -17,14 +17,14 @@ if (!isset($bird)) {
 </dl>
 
 <dl>
-  <dt>Category</dt>
+  <dt>Food</dt>
   <dd>
     <select name="Food">
-      <option value=""></option>
-      <?php foreach ($bird::FOOD_OPTIONS as $option) { ?>
-        <option value="<?php echo $option; ?>" <?php if ($bird->food == $option) {
-                                                  echo 'selected';
-                                                } ?>><?php echo $food; ?></option>
+      <option value="">Select One</option>
+      <?php foreach (Bird::FOOD_OPTIONS as $option_id => $option_name) { ?>
+        <option value="<?php echo $option_id; ?>" <?php if ($bird->food == $option_name) {
+                                                    echo 'selected';
+                                                  } ?>><?php echo $option_name; ?></option>
       <?php } ?>
     </select>
   </dd>
@@ -34,8 +34,7 @@ if (!isset($bird)) {
   <dt>Conservation ID</dt>
   <dd>
     <select name="conservation_id">
-      <option value=""></option>
-      <?php foreach ($bird::CONSERVATION_OPTIONS as $cond_id => $cond_name) { ?>
+      <?php foreach (Bird::CONSERVATION_OPTIONS as $cond_id => $cond_name) { ?>
         <option value="<?php echo $cond_id; ?>" <?php if ($bird->conservation_id == $cond_id) {
                                                   echo 'selected';
                                                 } ?>><?php echo $cond_name; ?></option>
