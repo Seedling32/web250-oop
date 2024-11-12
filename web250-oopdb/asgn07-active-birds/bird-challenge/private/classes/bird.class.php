@@ -58,6 +58,7 @@ class Bird
 
   // End active record code 
 
+  public $id;
   public $common_name;
   public $habitat;
   public $food;
