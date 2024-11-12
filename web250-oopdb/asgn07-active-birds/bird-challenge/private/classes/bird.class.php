@@ -69,7 +69,7 @@ class Bird
     return $object;
   }
 
-  public function create()
+  protected function create()
   {
     $attributes = $this->sanitized_attributes();
     $sql = "INSERT INTO birds (";
@@ -84,7 +84,7 @@ class Bird
     return $result;
   }
 
-  public function update()
+  protected function update()
   {
     $attributes = $this->sanitized_attributes();
     $attribute_pairs = [];
@@ -97,6 +97,15 @@ class Bird
     $sql .= "LIMIT 1";
     $result = self::$database->query($sql);
     return $result;
+  }
+
+  public function save()
+  {
+    if (isset($this->id)) {
+      return $this->update();
+    } else {
+      return $this->create();
+    }
   }
 
   public function merge_attributes($args = [])

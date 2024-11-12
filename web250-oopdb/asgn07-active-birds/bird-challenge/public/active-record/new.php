@@ -13,7 +13,7 @@ if (is_post_request()) {
   $args['backyard_tips'] = $_POST['backyard_tips'] ?? NULL;
 
   $bird = new Bird($args);
-  $result = $bird->create();
+  $result = $bird->save();
 
   if ($result === true) {
     $new_id = $bird->id;
