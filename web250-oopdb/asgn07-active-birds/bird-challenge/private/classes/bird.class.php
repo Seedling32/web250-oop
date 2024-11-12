@@ -84,6 +84,30 @@ class Bird
     return $result;
   }
 
+  public function update()
+  {
+    $attributes = $this->sanitized_attributes();
+    $attribute_pairs = [];
+    foreach ($attributes as $key => $value) {
+      $attribute_pairs[] = "{$key}='{$value}'";
+    }
+    $sql = "UPDATE birds SET ";
+    $sql .= join(', ', $attribute_pairs);
+    $sql .= " WHERE id ='" . self::$database->escape_string($this->id) . "' ";
+    $sql .= "LIMIT 1";
+    $result = self::$database->query($sql);
+    return $result;
+  }
+
+  public function merge_attributes($args = [])
+  {
+    foreach ($args as $key => $value) {
+      if (property_exists($this, $key) && !is_null($value)) {
+        $this->$key = $value;
+      }
+    }
+  }
+
   public function attributes()
   {
     $attributes = [];
@@ -170,6 +194,15 @@ class Bird
   {
     if ($this->conservation_id > 0) {
       return self::CONSERVATION_OPTIONS[$this->conservation_id];
+    } else {
+      return "unknown";
+    }
+  }
+
+  public function food()
+  {
+    if ($this->food > 0) {
+      return self::FOOD_OPTIONS[$this->food];
     } else {
       return "unknown";
     }

@@ -6,38 +6,34 @@ if (!isset($_GET['id'])) {
   redirect_to(url_for('/active-record/index.php'));
 }
 $id = $_GET['id'];
+$bird = Bird::find_by_id($id);
+if ($bird == false) {
+  redirect_to(url_for('/active-record/index.php'));
+}
 
 if (is_post_request()) {
 
   // Save record using post parameters
   $args = [];
   $args['common_name'] = $_POST['common_name'] ?? NULL;
-  $args['model'] = $_POST['model'] ?? NULL;
-  $args['year'] = $_POST['year'] ?? NULL;
-  $args['category'] = $_POST['category'] ?? NULL;
-  $args['color'] = $_POST['color'] ?? NULL;
-  $args['gender'] = $_POST['gender'] ?? NULL;
-  $args['price'] = $_POST['price'] ?? NULL;
-  $args['weight_kg'] = $_POST['weight_kg'] ?? NULL;
-  $args['condition_id'] = $_POST['condition_id'] ?? NULL;
-  $args['description'] = $_POST['description'] ?? NULL;
+  $args['habitat'] = $_POST['habitat'] ?? NULL;
+  $args['food'] = $_POST['food'] ?? NULL;
+  $args['conservation_id'] = $_POST['conservation_id'] ?? NULL;
+  $args['backyard_tips'] = $_POST['backyard_tips'] ?? NULL;
 
-  $bicycle = [];
+  $bird->merge_attributes($args);
+  $result = $bird->update();
 
-  $result = false;
   if ($result === true) {
     $_SESSION['message'] = 'The bicycle was updated successfully.';
-    redirect_to(url_for('/staff/bicycles/show.php?id=' . $id));
+    redirect_to(url_for('/active-record/show.php?id=' . $id));
   } else {
     // show errors
   }
 } else {
 
   // display the form
-  $bird = Bird::find_by_id($id);
-  if ($bird == false) {
-    redirect_to(url_for('/active-record/index.php'));
-  }
+
 }
 
 ?>

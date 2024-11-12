@@ -19,12 +19,12 @@ if (!isset($bird)) {
 <dl>
   <dt>Food</dt>
   <dd>
-    <select name="Food">
+    <select name="food">
       <option value="">Select One</option>
       <?php foreach (Bird::FOOD_OPTIONS as $option_id => $option_name) { ?>
-        <option value="<?php echo $option_id; ?>" <?php if ($bird->food == $option_name) {
-                                                    echo 'selected';
-                                                  } ?>><?php echo $option_name; ?></option>
+        <option value="<?php echo $option_name; ?>" <?php if ($bird->food == $option_name) {
+                                                      echo 'selected';
+                                                    } ?>><?php echo $option_name; ?></option>
       <?php } ?>
     </select>
   </dd>
