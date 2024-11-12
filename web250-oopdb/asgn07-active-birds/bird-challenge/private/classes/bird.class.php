@@ -6,6 +6,7 @@ class Bird
   // Active record code
 
   static protected $database;
+  static protected $db_columns = ['id', 'common_name', 'habitat', 'food', 'conservation_id', 'backyard_tips'];
 
   static public function set_database($database)
   {
@@ -33,6 +34,18 @@ class Bird
     return self::find_by_sql($sql);
   }
 
+  static public function find_by_id($id)
+  {
+    $sql = "SELECT * FROM birds ";
+    $sql .= "WHERE id='" . self::$database->escape_string($id) . "'";
+    $obj_array = self::find_by_sql($sql);
+    if (!empty($obj_array)) {
+      return array_shift($obj_array);
+    } else {
+      return false;
+    }
+  }
+
   static public function find_by_name($common_name)
   {
     $sql = "SELECT * FROM birds ";
@@ -54,6 +67,42 @@ class Bird
       }
     }
     return $object;
+  }
+
+  public function create()
+  {
+    $attributes = $this->sanitized_attributes();
+    $sql = "INSERT INTO bicycles (";
+    $sql .= join(', ', array_keys($attributes));
+    $sql .= ") VALUES ('";
+    $sql .= join("', '", array_values($attributes));
+    $sql .= "')";
+    $result = self::$database->query($sql);
+    if ($result) {
+      $this->id = self::$database->insert_id;
+    }
+    return $result;
+  }
+
+  public function attributes()
+  {
+    $attributes = [];
+    foreach (self::$db_columns as $column) {
+      if ($column == 'id') {
+        continue;
+      }
+      $attributes[$column] = $this->$column;
+    }
+    return $attributes;
+  }
+
+  protected function sanitized_attributes()
+  {
+    $sanitized = [];
+    foreach ($this->attributes() as $key => $value) {
+      $sanitized[$key] = self::$database->escape_string($value);
+    }
+    return $sanitized;
   }
 
   // End active record code 
@@ -82,6 +131,13 @@ class Bird
     2 => 'Moderate concern',
     3 => 'Extreme concern',
     4 => 'Extinct'
+  ];
+
+  protected const FOOD_OPTIONS = [
+    1 => 'Insects',
+    2 => 'Nectar',
+    3 => 'Omnivore',
+    4 => 'Carnivore'
   ];
 
   /*

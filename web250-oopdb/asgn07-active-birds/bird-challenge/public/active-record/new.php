@@ -1,12 +1,12 @@
 <?php
 
-require_once('../../../private/initialize.php');
+require_once('../../private/initialize.php');
 
-if(is_post_request()) {
+if (is_post_request()) {
 
   // Create record using post parameters
   $args = [];
-  $args['brand'] = $_POST['brand'] ?? NULL;
+  $args['common_name'] = $_POST['common_name'] ?? NULL;
   $args['model'] = $_POST['model'] ?? NULL;
   $args['year'] = $_POST['year'] ?? NULL;
   $args['category'] = $_POST['category'] ?? NULL;
@@ -20,14 +20,13 @@ if(is_post_request()) {
   $bicycle = new Bicycle($args);
   $result = $bicycle->create();
 
-  if($result === true) {
+  if ($result === true) {
     $new_id = $bicycle->id;
     $_SESSION['message'] = 'The bicycle was created successfully.';
     redirect_to(url_for('/staff/bicycles/show.php?id=' . $new_id));
   } else {
     // show errors
   }
-
 } else {
   // display the form
   $bicycle = new Bicycle;
@@ -45,7 +44,8 @@ if(is_post_request()) {
   <div class="bicycle new">
     <h1>Create Bicycle</h1>
 
-    <?php // echo display_errors($errors); ?>
+    <?php // echo display_errors($errors); 
+    ?>
 
     <form action="<?php echo url_for('/staff/bicycles/new.php'); ?>" method="post">
 

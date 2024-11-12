@@ -1,64 +1,44 @@
-<?php require_once('../../../private/initialize.php'); ?>
+<?php require_once('../../private/initialize.php'); ?>
 
 <?php
 
 $id = $_GET['id'] ?? '1'; // PHP > 7.0
 
-$bicycle = Bicycle::find_by_id($id);
+$bird = Bird::find_by_id($id);
 
 ?>
 
-<?php $page_title = 'Show Bicycle: ' . h($bicycle->name()); ?>
-<?php include(SHARED_PATH . '/staff_header.php'); ?>
+<?php $page_title = 'Show Bird: ' . h($bird->name()); ?>
+<?php include(SHARED_PATH . '/private_header.php'); ?>
 
 <div id="content">
 
-  <a class="back-link" href="<?php echo url_for('/staff/bicycles/index.php'); ?>">&laquo; Back to List</a>
+  <a class="back-link" href="<?php echo url_for('/active-record/index.php'); ?>">&laquo; Back to List</a>
 
   <div class="bicycle show">
 
-    <h1>Bicycle: <?php echo h($bicycle->name()); ?></h1>
+    <h1>Bird: <?php echo h($bird->name()); ?></h1>
 
     <div class="attributes">
       <dl>
-        <dt>Brand</dt>
-        <dd><?php echo h($bicycle->brand); ?></dd>
+        <dt>Common Name</dt>
+        <dd><?php echo h($bird->common_name); ?></dd>
       </dl>
       <dl>
-        <dt>Model</dt>
-        <dd><?php echo h($bicycle->model); ?></dd>
+        <dt>Habitat</dt>
+        <dd><?php echo h($bird->habitat); ?></dd>
       </dl>
       <dl>
-        <dt>Year</dt>
-        <dd><?php echo h($bicycle->year); ?></dd>
+        <dt>Food</dt>
+        <dd><?php echo h($bird->food); ?></dd>
       </dl>
       <dl>
-        <dt>Category</dt>
-        <dd><?php echo h($bicycle->category); ?></dd>
+        <dt>Conservation ID</dt>
+        <dd><?php echo h($bird->conservation_id); ?></dd>
       </dl>
       <dl>
-        <dt>Color</dt>
-        <dd><?php echo h($bicycle->color); ?></dd>
-      </dl>
-      <dl>
-        <dt>Gender</dt>
-        <dd><?php echo h($bicycle->gender); ?></dd>
-      </dl>
-      <dl>
-        <dt>Weight</dt>
-        <dd><?php echo h($bicycle->weight_kg()) . ' / ' . h($bicycle->weight_lbs()); ?></dd>
-      </dl>
-      <dl>
-        <dt>Condition</dt>
-        <dd><?php echo h($bicycle->condition()); ?></dd>
-      </dl>
-      <dl>
-        <dt>Price</dt>
-        <dd><?php echo h(money_format('$%i', $bicycle->price)); ?></dd>
-      </dl>
-      <dl>
-        <dt>Description</dt>
-        <dd><?php echo h($bicycle->description); ?></dd>
+        <dt>Backyard Tips</dt>
+        <dd><?php echo h($bird->backyard_tips); ?></dd>
       </dl>
     </div>
 
