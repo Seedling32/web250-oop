@@ -11,7 +11,7 @@ if (is_post_request()) {
 
   // Save record using post parameters
   $args = [];
-  $args['brand'] = $_POST['brand'] ?? NULL;
+  $args['common_name'] = $_POST['common_name'] ?? NULL;
   $args['model'] = $_POST['model'] ?? NULL;
   $args['year'] = $_POST['year'] ?? NULL;
   $args['category'] = $_POST['category'] ?? NULL;
@@ -34,33 +34,33 @@ if (is_post_request()) {
 } else {
 
   // display the form
-  $bicycle = Bird::find_by_id($id);
-  if ($bicycle == false) {
-    redirect_to(url_for('/staff/bicycles/index.php'));
+  $bird = Bird::find_by_id($id);
+  if ($bird == false) {
+    redirect_to(url_for('/active-record/index.php'));
   }
 }
 
 ?>
 
-<?php $page_title = 'Edit Bicycle'; ?>
-<?php include(SHARED_PATH . '/staff_header.php'); ?>
+<?php $page_title = 'Edit Bird'; ?>
+<?php include(SHARED_PATH . '/private_header.php'); ?>
 
 <div id="content">
 
-  <a class="back-link" href="<?php echo url_for('/staff/bicycles/index.php'); ?>">&laquo; Back to List</a>
+  <a class="back-link" href="<?php echo url_for('/active-record/index.php'); ?>">&laquo; Back to List</a>
 
   <div class="bicycle edit">
-    <h1>Edit Bicycle</h1>
+    <h1>Edit Bird</h1>
 
     <?php // echo display_errors($errors); 
     ?>
 
-    <form action="<?php echo url_for('/staff/bicycles/edit.php?id=' . h(u($id))); ?>" method="post">
+    <form action="<?php echo url_for('/active-record/edit.php?id=' . h(u($id))); ?>" method="post">
 
       <?php include('form_fields.php'); ?>
 
       <div id="operations">
-        <input type="submit" value="Edit Bicycle" />
+        <input type="submit" value="Edit Bird" />
       </div>
     </form>
 
@@ -68,4 +68,4 @@ if (is_post_request()) {
 
 </div>
 
-<?php include(SHARED_PATH . '/staff_footer.php'); ?>
+<?php include(SHARED_PATH . '/private_footer.php'); ?>

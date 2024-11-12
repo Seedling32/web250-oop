@@ -72,7 +72,7 @@ class Bird
   public function create()
   {
     $attributes = $this->sanitized_attributes();
-    $sql = "INSERT INTO bicycles (";
+    $sql = "INSERT INTO birds (";
     $sql .= join(', ', array_keys($attributes));
     $sql .= ") VALUES ('";
     $sql .= join("', '", array_values($attributes));
