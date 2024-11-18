@@ -33,7 +33,7 @@ if (is_post_request()) {
   <div class="bicycle new">
     <h1>Create Bird</h1>
 
-    <?php echo display_errors($bird->errors);
+    <?php //echo display_errors($bird->errors);
     ?>
 
     <form action="<?php echo url_for('/active-record/new.php'); ?>" method="post">

@@ -15,3 +15,7 @@ table#birds tr th {
   border: 1px solid #000;
   padding: 3px;
 }
+
+dl > dd:nth-child(2) {
+  color: red;
+}

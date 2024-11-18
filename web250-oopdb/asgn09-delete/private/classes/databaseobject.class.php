@@ -150,6 +150,4 @@ class DatabaseObject
     $result = self::$database->query($sql);
     return $result;
   }
-
-  // End active record code 
 }

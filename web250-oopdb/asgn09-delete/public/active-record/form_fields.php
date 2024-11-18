@@ -9,11 +9,13 @@ if (!isset($bird)) {
 <dl>
   <dt>Common Name</dt>
   <dd><input type="text" name="bird[common_name]" value="<?php echo h($bird->common_name); ?>" /></dd>
+  <?= (!empty($bird->errors['common_name'])) ? "<dd style = 'color: red;'>" . $bird->errors['common_name'] . "</dd>" : ''; ?>
 </dl>
 
 <dl>
   <dt>Habitat</dt>
   <dd><input type="text" name="bird[habitat]" value="<?php echo h($bird->habitat); ?>" /></dd>
+  <?= (!empty($bird->errors['habitat'])) ? "<dd style = 'color: red;'>" . $bird->errors['habitat'] . "</dd>" : ''; ?>
 </dl>
 
 <dl>
@@ -29,6 +31,7 @@ if (!isset($bird)) {
       <?php endforeach ?>
     </select>
   </dd>
+  <?= (!empty($bird->errors['food'])) ? "<dd style = 'color: red;'>" . $bird->errors['food'] . "</dd>" : ''; ?>
 </dl>
 
 <dl>

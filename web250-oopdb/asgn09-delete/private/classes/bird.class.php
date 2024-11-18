@@ -104,13 +104,13 @@ class Bird extends DatabaseObject
   {
     $this->errors = [];
     if (is_blank($this->common_name)) {
-      $this->errors[] = 'Common name cannot be blank.';
+      $this->errors['common_name'] = 'Common name cannot be blank.';
     }
     if (is_blank($this->habitat)) {
-      $this->errors[] = 'Habitat cannot be blank.';
+      $this->errors['habitat'] = 'Habitat cannot be blank.';
     }
     if (is_blank($this->food)) {
-      $this->errors[] = 'Food cannot be blank.';
+      $this->errors['food'] = 'Food cannot be blank.';
     }
     return $this->errors;
   }
