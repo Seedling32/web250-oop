@@ -8,18 +8,18 @@ if (!isset($bird)) {
 
 <dl>
   <dt>Common Name</dt>
-  <dd><input type="text" name="common_name" value="<?php echo h($bird->common_name); ?>" /></dd>
+  <dd><input type="text" name="bird[common_name]" value="<?php echo h($bird->common_name); ?>" /></dd>
 </dl>
 
 <dl>
   <dt>Habitat</dt>
-  <dd><input type="text" name="habitat" value="<?php echo h($bird->habitat); ?>" /></dd>
+  <dd><input type="text" name="bird[habitat]" value="<?php echo h($bird->habitat); ?>" /></dd>
 </dl>
 
 <dl>
   <dt>Food</dt>
   <dd>
-    <select name="food">
+    <select name="bird[food]">
       <option value="">Select One</option>
       <?php foreach (Bird::FOOD_OPTIONS as $option_id => $option_name) : ?>
         <option value="<?= $option_name; ?>"
@@ -34,7 +34,7 @@ if (!isset($bird)) {
 <dl>
   <dt>Conservation ID</dt>
   <dd>
-    <select name="conservation_id">
+    <select name="bird[conservation_id]">
       <?php foreach (Bird::CONSERVATION_OPTIONS as $cond_id => $cond_name) : ?>
         <option value="<?= $cond_id; ?>"
           <?= ($bird->conservation_id == $cond_id) ? 'selected' : ''; ?>>
@@ -47,5 +47,5 @@ if (!isset($bird)) {
 
 <dl>
   <dt>Backyard Tips</dt>
-  <dd><textarea name="backyard_tips" rows="5" cols="50"><?php echo h($bird->backyard_tips); ?></textarea></dd>
+  <dd><textarea name="bird[backyard_tips]" rows="5" cols="50"><?php echo h($bird->backyard_tips); ?></textarea></dd>
 </dl>
