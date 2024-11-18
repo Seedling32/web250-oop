@@ -217,6 +217,21 @@ class Bird
     return "{$this->common_name}";
   }
 
+  public function habitat()
+  {
+    return "{$this->habitat}";
+  }
+
+  public function tips()
+  {
+    return "{$this->backyard_tips}";
+  }
+
+  public function display_food()
+  {
+    return "{$this->food}";
+  }
+
   public function __construct($args = [])
   {
     $this->common_name = $args['common_name'] ?? '';

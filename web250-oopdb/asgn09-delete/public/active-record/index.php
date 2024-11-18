@@ -40,7 +40,7 @@ $birds = Bird::find_all();
           <td><?php echo h($bird->backyard_tips); ?></td>
           <td><a class="action" href="<?php echo url_for('/active-record/show.php?id=' . h(u($bird->id))); ?>">View</a></td>
           <td><a class="action" href="<?php echo url_for('/active-record/edit.php?id=' . h(u($bird->id))); ?>">Edit</a></td>
-          <td><a class="action" href="<?php echo url_for('/staff/bicycles/delete.php?id=' . h(u($bird->id))); ?>">Delete</a></td>
+          <td><a class="action" href="<?php echo url_for('/active-record/delete.php?id=' . h(u($bird->id))); ?>">Delete</a></td>
         </tr>
       <?php } ?>
     </table>
