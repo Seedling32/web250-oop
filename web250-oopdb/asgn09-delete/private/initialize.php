@@ -17,6 +17,7 @@ require_once('functions.php');
 require_once('status_error_functions.php');
 require_once('db_credentials.php');
 require_once('db_functions.php');
+require_once('validation_functions.php');
 
 /*
     You can list the required classes manually or use the autoload class.
