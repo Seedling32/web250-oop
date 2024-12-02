@@ -1,4 +1,4 @@
-<?php require_once('../../private/initialize.php'); ?>
+<?php require_once('../../../private/initialize.php'); ?>
 
 <?php
 
@@ -14,7 +14,7 @@ $birds = Bird::find_all();
     <h1>Birds</h1>
 
     <div class="actions">
-      <a class="action" href="<?php echo url_for('/active-record/new.php'); ?>">Add Bird</a>
+      <a class="action" href="<?php echo url_for('/active-record/birds/new.php'); ?>">Add Bird</a>
     </div>
 
     <table class="list">
@@ -38,9 +38,9 @@ $birds = Bird::find_all();
           <td><?php echo h($bird->food); ?></td>
           <td><?php echo h($bird->conservation_id); ?></td>
           <td><?php echo h($bird->backyard_tips); ?></td>
-          <td><a class="action" href="<?php echo url_for('/active-record/show.php?id=' . h(u($bird->id))); ?>">View</a></td>
-          <td><a class="action" href="<?php echo url_for('/active-record/edit.php?id=' . h(u($bird->id))); ?>">Edit</a></td>
-          <td><a class="action" href="<?php echo url_for('/active-record/delete.php?id=' . h(u($bird->id))); ?>">Delete</a></td>
+          <td><a class="action" href="<?php echo url_for('/active-record/birds/show.php?id=' . h(u($bird->id))); ?>">View</a></td>
+          <td><a class="action" href="<?php echo url_for('/active-record/birds/edit.php?id=' . h(u($bird->id))); ?>">Edit</a></td>
+          <td><a class="action" href="<?php echo url_for('/active-record/birds/delete.php?id=' . h(u($bird->id))); ?>">Delete</a></td>
         </tr>
       <?php } ?>
     </table>
