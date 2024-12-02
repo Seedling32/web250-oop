@@ -1,0 +1,21 @@
+table#birds {
+  margin-top: 30px;
+  width: 980px;
+  border-collapse: collapse;
+}
+
+table#birds tr th {
+  background: #0b61a5;
+  color: #fff;
+  text-align: left;
+}
+
+table#birds tr td,
+table#birds tr th {
+  border: 1px solid #000;
+  padding: 3px;
+}
+
+dl > dd:nth-child(2) {
+  color: red;
+}
