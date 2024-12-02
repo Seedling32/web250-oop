@@ -5,38 +5,38 @@ require_once('../../../private/initialize.php');
 if (is_post_request()) {
 
   // Create record using post parameters
-  $args = $_POST['bird'];
-  $bird = new Bird($args);
-  $result = $bird->save();
+  $args = $_POST['member'];
+  $member = new Bird($args);
+  $result = $member->save();
 
   if ($result === true) {
-    $new_id = $bird->id;
-    $_SESSION['message'] = 'The bird was created successfully.';
-    redirect_to(url_for('/active-record/birds/show.php?id=' . $new_id));
+    $new_id = $member->id;
+    $_SESSION['message'] = 'The member was created successfully.';
+    redirect_to(url_for('/active-record/members/show.php?id=' . $new_id));
   } else {
     // show errors
   }
 } else {
   // display the form
-  $bird = new Bird;
+  $member = new Member;
 }
 
 ?>
 
-<?php $page_title = 'Create Bird'; ?>
+<?php $page_title = 'Create Member'; ?>
 <?php include(SHARED_PATH . '/private_header.php'); ?>
 
 <div id="content">
 
-  <a class="back-link" href="<?php echo url_for('/active-record/birds/index.php'); ?>">&laquo; Back to List</a>
+  <a class="back-link" href="<?php echo url_for('/active-record/members/index.php'); ?>">&laquo; Back to List</a>
 
   <div class="bicycle new">
-    <h1>Create Bird</h1>
+    <h1>Create Member</h1>
 
     <?php //echo display_errors($bird->errors);
     ?>
 
-    <form action="<?php echo url_for('/active-record/birds/new.php'); ?>" method="post">
+    <form action="<?php echo url_for('/active-record/members/new.php'); ?>" method="post">
 
       <?php include('form_fields.php'); ?>
 

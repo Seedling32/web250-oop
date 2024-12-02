@@ -2,43 +2,39 @@
 
 <?php
 
-$id = $_GET['id'] ?? '1'; // PHP > 7.0
+$id = $_GET['id'] ?? ''; // PHP > 7.0
 
-$bird = Bird::find_by_id($id);
+$member = Member::find_by_id($id);
 
 ?>
 
-<?php $page_title = 'Show Bird: ' . h($bird->name()); ?>
+<?php $page_title = 'Show Member: ' . h($member->full_name()); ?>
 <?php include(SHARED_PATH . '/private_header.php'); ?>
 
 <div id="content">
 
-  <a class="back-link" href="<?php echo url_for('/active-record/birds/index.php'); ?>">&laquo; Back to List</a>
+  <a class="back-link" href="<?php echo url_for('/active-record/members/index.php'); ?>">&laquo; Back to List</a>
 
   <div class="bicycle show">
 
-    <h1>Bird: <?php echo h($bird->name()); ?></h1>
+    <h1>Bird: <?php echo h($member->full_name()); ?></h1>
 
     <div class="attributes">
       <dl>
-        <dt>Common Name</dt>
-        <dd><?php echo h($bird->common_name); ?></dd>
+        <dt>First Name:</dt>
+        <dd><?php echo h($member->first_name); ?></dd>
       </dl>
       <dl>
-        <dt>Habitat</dt>
-        <dd><?php echo h($bird->habitat); ?></dd>
+        <dt>Last Name:</dt>
+        <dd><?php echo h($member->last_name); ?></dd>
       </dl>
       <dl>
-        <dt>Food</dt>
-        <dd><?php echo h($bird->food); ?></dd>
+        <dt>Email:</dt>
+        <dd><?php echo h($member->email); ?></dd>
       </dl>
       <dl>
-        <dt>Conservation ID</dt>
-        <dd><?php echo h($bird->conservation_id); ?></dd>
-      </dl>
-      <dl>
-        <dt>Backyard Tips</dt>
-        <dd><?php echo h($bird->backyard_tips); ?></dd>
+        <dt>Username:</dt>
+        <dd><?php echo h($member->username); ?></dd>
       </dl>
     </div>
 
