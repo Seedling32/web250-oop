@@ -17,7 +17,7 @@ if (is_post_request()) {
 
   // Delete bird
   $result = $member->delete();
-  $_SESSION['message'] = 'The member was deleted successfully.';
+  $session->message('The member was deleted successfully.');
   redirect_to(url_for('/active-record/members/index.php'));
 } else {
   // Display form

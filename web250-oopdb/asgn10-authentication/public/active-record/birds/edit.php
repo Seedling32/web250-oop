@@ -20,7 +20,7 @@ if (is_post_request()) {
   $result = $bird->save();
 
   if ($result === true) {
-    $_SESSION['message'] = 'The bicycle was updated successfully.';
+    $session->message('The bicycle was updated successfully.');
     redirect_to(url_for('/active-record/birds/show.php?id=' . $id));
   } else {
     // show errors

@@ -12,7 +12,7 @@ if (is_post_request()) {
 
   if ($result === true) {
     $new_id = $bird->id;
-    $_SESSION['message'] = 'The bird was created successfully.';
+    $session->message('The bird was created successfully.');
     redirect_to(url_for('/active-record/birds/show.php?id=' . $new_id));
   } else {
     // show errors
