@@ -28,6 +28,7 @@ require_once('validation_functions.php');
 // Autoload class definitions
 function my_autoload($class)
 {
+  $class = strtolower($class);
   if (preg_match('/\A\w+\Z/', $class)) {
     include('classes/' . $class . '.class.php');
   }
