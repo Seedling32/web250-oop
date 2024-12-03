@@ -48,7 +48,7 @@ if (!isset($member)) {
 
 <dl>
   <dt>Password</dt>
-  <dd><input type="password" name="member[password]" value="<?php echo h($member->password); ?>" /></dd>
+  <dd><input type="password" name="member[password]" value="" /></dd>
   <?= (!empty($member->errors['password'])) ? "<dd style = 'color: red;'>" . $member->errors['password'] . "</dd>" : ''; ?>
 </dl>
 
