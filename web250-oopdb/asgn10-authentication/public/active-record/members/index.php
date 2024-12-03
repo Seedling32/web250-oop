@@ -1,6 +1,7 @@
-<?php require_once('../../../private/initialize.php'); ?>
-
 <?php
+
+require_once('../../../private/initialize.php');
+require_login();
 
 // Find all members;
 $members = Member::find_all();
