@@ -24,6 +24,7 @@ if (is_post_request()) {
     // test if admin found and password is correct
     if ($member != false && $member->verify_password($password)) {
       // Mark admin as logged in
+      $session->login($member);
       redirect_to(url_for('/active-record/index.php'));
     } else {
       // username not found or password does not match
