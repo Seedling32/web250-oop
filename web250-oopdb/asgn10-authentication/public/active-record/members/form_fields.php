@@ -19,10 +19,16 @@ if (!isset($member)) {
 </dl>
 
 <dl>
+  <dt>Email</dt>
+  <dd><input type="text" name="member[email]" value="<?php echo h($member->email); ?>" /></dd>
+  <?= (!empty($member->errors['email'])) ? "<dd style = 'color: red;'>" . $member->errors['email'] . "</dd>" : ''; ?>
+</dl>
+
+<dl>
   <dt>User Level:</dt>
   <dd>
     <select name="member[user_level]">
-      <option value="">Select One</option>
+      <option value="Select One">Select One</option>
       <?php foreach (Member::USER_OPTIONS as $option_id => $option_name) : ?>
         <option value="<?= $option_name; ?>"
           <?= ($member->user_level == $option_id) ? 'selected' : ''; ?>>
@@ -35,12 +41,19 @@ if (!isset($member)) {
 </dl>
 
 <dl>
-  <dt>Email</dt>
-  <dd><input type="text" name="member[email]" value="<?php echo h($member->email); ?>" /></dd>
-  <?= (!empty($member->errors['email'])) ? "<dd style = 'color: red;'>" . $member->errors['email'] . "</dd>" : ''; ?>
+  <dt>Username</dt>
+  <dd><input type="text" name="member[username]" value="<?php echo h($member->username); ?>" /></dd>
+  <?= (!empty($member->errors['username'])) ? "<dd style = 'color: red;'>" . $member->errors['username'] . "</dd>" : ''; ?>
 </dl>
 
 <dl>
-  <dt>Username</dt>
-  <dd><input type="text" name="member[username]" value="<?php echo h($member->username); ?>" /></dd>
+  <dt>Password</dt>
+  <dd><input type="password" name="member[password]" value="<?php echo h($member->password); ?>" /></dd>
+  <?= (!empty($member->errors['password'])) ? "<dd style = 'color: red;'>" . $member->errors['password'] . "</dd>" : ''; ?>
+</dl>
+
+<dl>
+  <dt>Confirm Password</dt>
+  <dd><input type="password" name="member[confirm_password]" value="" /></dd>
+  <?= (!empty($member->errors['confirm_password'])) ? "<dd style = 'color: red;'>" . $member->errors['confirm_password'] . "</dd>" : ''; ?>
 </dl>
