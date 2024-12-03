@@ -22,6 +22,7 @@ if (!isset($page_title)) {
   <navigation>
     <ul>
       <?php if ($session->is_logged_in()) { ?>
+        <li>User: <?php echo $session->username; ?></li>
         <li><a href="<?php echo url_for('/active-record/index.php'); ?>">Menu</a></li>
         <li><a href="<?php echo url_for('/active-record/logout.php'); ?>">Logout</a></li>
       <?php } ?>
