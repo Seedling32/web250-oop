@@ -2,7 +2,7 @@
 
 <?php
 
-// Find all bicycles;
+// Find all members;
 $members = Member::find_all();
 
 ?>

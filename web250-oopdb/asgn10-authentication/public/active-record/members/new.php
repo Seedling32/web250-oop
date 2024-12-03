@@ -6,7 +6,7 @@ if (is_post_request()) {
 
   // Create record using post parameters
   $args = $_POST['member'];
-  $member = new Bird($args);
+  $member = new Member($args);
   $result = $member->save();
 
   if ($result === true) {
@@ -41,7 +41,7 @@ if (is_post_request()) {
       <?php include('form_fields.php'); ?>
 
       <div id="operations">
-        <input type="submit" value="Create Bird">
+        <input type="submit" value="Create Member">
       </div>
     </form>
 

@@ -2,7 +2,7 @@
 
 <?php
 
-$id = $_GET['id'] ?? ''; // PHP > 7.0
+$id = $_GET['id'] ?? '1'; // PHP > 7.0
 
 $member = Member::find_by_id($id);
 
@@ -17,7 +17,7 @@ $member = Member::find_by_id($id);
 
   <div class="bicycle show">
 
-    <h1>Bird: <?php echo h($member->full_name()); ?></h1>
+    <h1>Member: <?php echo h($member->full_name()); ?></h1>
 
     <div class="attributes">
       <dl>

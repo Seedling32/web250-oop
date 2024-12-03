@@ -21,7 +21,7 @@ if (!isset($page_title)) {
 
   <navigation>
     <ul>
-      <li><a href="<?php echo url_for('/active-record/birds/index.php'); ?>">Menu</a></li>
+      <li><a href="<?php echo url_for('/active-record/index.php'); ?>">Menu</a></li>
     </ul>
   </navigation>
 

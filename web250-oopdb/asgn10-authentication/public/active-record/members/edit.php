@@ -19,7 +19,7 @@ if (is_post_request()) {
   $result = $member->save();
 
   if ($result === true) {
-    $_SESSION['message'] = 'The bicycle was updated successfully.';
+    $_SESSION['message'] = 'The member was updated successfully.';
     redirect_to(url_for('/active-record/members/show.php?id=' . $id));
   } else {
     // show errors
@@ -40,7 +40,7 @@ if (is_post_request()) {
   <a class="back-link" href="<?php echo url_for('/active-record/members/index.php'); ?>">&laquo; Back to List</a>
 
   <div class="bicycle edit">
-    <h1>Edit Bird</h1>
+    <h1>Edit Member</h1>
 
     <?php //echo display_errors($bird->errors);
     ?>
@@ -50,7 +50,7 @@ if (is_post_request()) {
       <?php include('form_fields.php'); ?>
 
       <div id="operations">
-        <input type="submit" value="Edit Bird" />
+        <input type="submit" value="Edit Member" />
       </div>
     </form>
 
