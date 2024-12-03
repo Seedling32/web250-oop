@@ -32,6 +32,18 @@ class Member extends DatabaseObject
     $this->confirm_password = $args['confirm_password'] ?? '';
   }
 
+  static public function find_by_username($username)
+  {
+    $sql = "SELECT * FROM " . static::$table_name . " ";
+    $sql .= "WHERE username='" . self::$database->escape_string($username) . "'";
+    $obj_array = static::find_by_sql($sql);
+    if (!empty($obj_array)) {
+      return array_shift($obj_array);
+    } else {
+      return false;
+    }
+  }
+
   public function full_name()
   {
     return $this->first_name . " " . $this->last_name;
@@ -114,6 +126,8 @@ class Member extends DatabaseObject
       $this->errors['username'] = 'Username cannot be blank.';
     } else if (!has_length($this->first_name, array('min' => 2, 'max' => 255))) {
       $this->errors['username'] = "Username must be between 2 and 255 characters.";
+    } else if (!has_unique_username($this->username, $this->id ?? 0)) {
+      $this->errors['username'] = "Username already exists. Try another.";
     }
 
     if ($this->password_required) {
