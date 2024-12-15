@@ -32,9 +32,9 @@ Use a table border of 1 to make the display easier to read. -->
       <td><?php echo h($bird->common_name); ?></td>
       <td><?php echo h($bird->habitat); ?></td>
       <td><?php echo h($bird->food); ?></td>
-      <td><?php echo h($bird->conservation_id); ?></td>
+      <td><?php echo h($bird->conservation()); ?></td>
       <td><?php echo h($bird->backyard_tips); ?></td>
-      <td><a href="detail.php?common_name=<?php echo $bird->common_name; ?>">View</a></td>
+      <td><a href="detail.php?id=<?php echo $bird->id; ?>">View</a></td>
     </tr>
   <?php } ?>
 

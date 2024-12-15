@@ -1,12 +1,12 @@
 <?php
 require_once('../private/initialize.php');
 
-$common_name = $_GET['common_name'] ?? false;
-if (!$common_name) {
+$id = $_GET['id'] ?? false;
+if (!$id) {
   redirect_to('birds.php');
 }
 
-$bird = Bird::find_by_name($common_name);
+$bird = Bird::find_by_id($id);
 $page_title = $bird->name();
 include(SHARED_PATH . '/public_header.php');
 ?>
