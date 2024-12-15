@@ -29,7 +29,7 @@ include(SHARED_PATH . '/public_header.php');
       </dl>
       <dl>
         <dt>Conservation ID</dt>
-        <dd><?php echo h($bird->conservation_id); ?></dd>
+        <dd><?php echo h($bird->conservation()); ?></dd>
       </dl>
       <dl>
         <dt>Backyard Tips</dt>
