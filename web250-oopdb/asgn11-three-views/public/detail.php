@@ -1,18 +1,18 @@
 <?php
 require_once('../private/initialize.php');
 
-$common_name = $_GET['common_name'] ?? false;
-if (!$common_name) {
-  redirect_to('birds.php');
+$id = $_GET['id'] ?? false;
+if (!$id) {
+  redirect_to('index.php');
 }
 
-$bird = Bird::find_by_name($common_name);
+$bird = Bird::find_by_id($id);
 $page_title = $bird->name();
 include(SHARED_PATH . '/public_header.php');
 ?>
 
 <div id="main">
-  <a href="birds.php">Back to all birds</a>
+  <a href="index.php">Back to all birds</a>
   <div id="page">
     <div id="detail">
       <dl>
@@ -29,7 +29,7 @@ include(SHARED_PATH . '/public_header.php');
       </dl>
       <dl>
         <dt>Conservation ID</dt>
-        <dd><?php echo h($bird->conservation_id); ?></dd>
+        <dd><?php echo h($bird->conservation()); ?></dd>
       </dl>
       <dl>
         <dt>Backyard Tips</dt>

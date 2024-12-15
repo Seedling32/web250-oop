@@ -73,7 +73,7 @@ class Member extends DatabaseObject
     }
   }
 
-  protected function set_hashed_password()
+  public function set_hashed_password()
   {
     $this->hashed_password = password_hash($this->password, PASSWORD_BCRYPT);
   }

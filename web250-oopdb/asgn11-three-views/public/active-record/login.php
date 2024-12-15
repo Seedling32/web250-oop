@@ -50,6 +50,7 @@ if (is_post_request()) {
     <input type="password" name="password" value="" /><br />
     <input type="submit" name="submit" value="Submit" />
   </form>
+  <p><a href="<?php echo (url_for('/index.php')) ?>">Back to list</a></p>
 
 </div>
 

@@ -24,21 +24,23 @@ if (!isset($member)) {
   <?= (!empty($member->errors['email'])) ? "<dd style = 'color: red;'>" . $member->errors['email'] . "</dd>" : ''; ?>
 </dl>
 
-<dl>
-  <dt>User Level:</dt>
-  <dd>
-    <select name="member[user_level]">
-      <option value="Select One">Select One</option>
-      <?php foreach (Member::USER_OPTIONS as $option_id => $option_name) : ?>
-        <option value="<?= $option_name; ?>"
-          <?= ($member->user_level == $option_id) ? 'selected' : ''; ?>>
-          <?= $option_name; ?>
-        </option>
-      <?php endforeach ?>
-    </select>
-  </dd>
-  <?= (!empty($member->errors['user_level'])) ? "<dd style = 'color: red;'>" . $member->errors['user_level'] . "</dd>" : ''; ?>
-</dl>
+<?php if ($session->get_user_level() === "A") { ?>
+  <dl>
+    <dt>User Level:</dt>
+    <dd>
+      <select name="member[user_level]">
+        <option value="Select One">Select One</option>
+        <?php foreach (Member::USER_OPTIONS as $option_id => $option_name) : ?>
+          <option value="<?= $option_name; ?>"
+            <?= ($member->user_level == $option_id) ? 'selected' : ''; ?>>
+            <?= $option_name; ?>
+          </option>
+        <?php endforeach ?>
+      </select>
+    </dd>
+    <?= (!empty($member->errors['user_level'])) ? "<dd style = 'color: red;'>" . $member->errors['user_level'] . "</dd>" : ''; ?>
+  </dl>
+<?php } ?>
 
 <dl>
   <dt>Username</dt>
